@@ -139,23 +139,23 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Stack(
         children: [
           const BackgroundScreen(),
-          customers.isEmpty
-              ? Center(
-                  child: Text(
-                    'Data Not Found!',
-                    style: CustomTextStyle.semiBold(
-                        fontSize: doubleTwenty, color: textColor),
+          isLoading
+              ? Align(
+                  alignment: Alignment.center,
+                  child: CircleAvatar(
+                    backgroundColor: primaryColor,
+                    radius: 35,
+                    child: CircularProgressIndicator(
+                      backgroundColor: whiteColor,
+                    ),
                   ),
                 )
-              : isLoading
-                  ? Align(
-                      alignment: Alignment.center,
-                      child: CircleAvatar(
-                        backgroundColor: primaryColor,
-                        radius: 35,
-                        child: CircularProgressIndicator(
-                          backgroundColor: whiteColor,
-                        ),
+              : customers.isEmpty
+                  ? Center(
+                      child: Text(
+                        'Data Not Found!',
+                        style: CustomTextStyle.semiBold(
+                            fontSize: doubleTwenty, color: textColor),
                       ),
                     )
                   : Align(

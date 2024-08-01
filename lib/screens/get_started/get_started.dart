@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pixel6_task/screens/home_screen.dart';
+import 'package:get/route_manager.dart';
+import 'package:pixel6_task/screens/home/home_screen.dart';
 import 'package:pixel6_task/utils/colors_constant.dart';
 import 'package:pixel6_task/utils/number_constant.dart';
 import 'package:pixel6_task/widget/common_text_style.dart';
@@ -60,11 +61,12 @@ class GetStarted extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) => const HomeScreen()),
-                            (_) => false);
+                        // Navigator.pushAndRemoveUntil(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (_) => const HomeScreen()),
+                        //     (_) => false);
+                        Get.offAll(()=> const HomeScreen());
                       },
                       child: ListTile(
                         title: Text(
